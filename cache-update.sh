@@ -77,5 +77,7 @@ for c in "${target[@]}"; do
   echo -e " $m populating ... $filename (${cache_size}B)"
 done
 
+wait
+
 echo -e " $m reports generated at ${report_dir}";echo
 

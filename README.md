@@ -2,6 +2,11 @@
 
 My custom report widget displays in the Terminal that come in very handy so I don't have to check out each application cache directories. Now I am sharing my love.
 
+<p align="left">
+  <img src="Screenshot_01.png" width="420">
+  <img src="Screenshot_02.png" width="420">
+</p>
+
 ## __setup
 
 make `cache-update.sh` executable and copy to `/usr/local/bin/` with a new file name,
