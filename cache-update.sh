@@ -39,6 +39,11 @@ thumbnails="${home}/.cache/thumbnails"
 videos="${home}/Videos"
 yarn="${home}/.cache/yarn"
 
+# prerequisites
+if ! which parallel > /dev/null; then
+  sudo apt install -y parallel
+fi
+
 # path to array
 declare -a target=($aptcacherng $archloop $dockerapt $chrome $electron 
                    $downloads $fyn $forever $gaele $golem $golemappcache 
@@ -65,7 +70,8 @@ for c in "${target[@]}"; do
              sed 's/System//g' | sed 's/-r-ng//g'|
              tr -d './' | tr '[:upper:]' '[:lower:]')
   # populate cache size and write to file
-  du -hs $c > ${report_dir}/${filename}_cache.report
+  # 1 job per cpu core
+  parallel -j 200 du -hs :::  $c > ${report_dir}/${filename}_cache.report
   # read file
   cache_size=`cat ${report_dir}/${filename}_cache.report | head -1 | cut -f1`
   echo -e " $m populating ... $filename (${cache_size}B)"
