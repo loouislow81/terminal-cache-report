@@ -2,6 +2,7 @@
 #
 # @@file: cache-widget.sh
 # @@desc: display cache reports in terminal
+# @author: Loouis Low (loouis@gmail.com)
 #
 
 # ansi
@@ -62,3 +63,4 @@ echo -e "YRN: $yarn ${d} NPM: $npm ${d} ARH: $archloop ${d} PNM: $pnpm ${d} OPR:
 echo -e "ECH: $echoes ${d} MUS: $music ${d} VID: $video ${d} DWN: $downloads ${d} PIP: $pip ${d} dPT: $dockerapt"
 echo -e "GOL: $golem ${d} MES: $mess ${d} PYG: $playground ${d} GDL: $gradle ${d} FRV: $forever ${d} ELT: $electron"
 echo -e "MVN: $maven ${d} APT: $apt ${d} TBN: $thumbnails ${d} BLF: $battery";echo
+

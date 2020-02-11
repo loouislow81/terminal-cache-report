@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 # @@file: cache-update.sh
-# @@desc: populate and generate application cache reports
+# @@desc: populate and generate application cache reports display in Terminal
+# @author: Loouis Low (loouis@gmail.com)
 #
 
 # ansi
@@ -39,8 +40,10 @@ videos="${home}/Videos"
 yarn="${home}/.cache/yarn"
 
 # path to array
-declare -a target=($aptcacherng $archloop $dockerapt $chrome $electron $downloads $fyn $forever $gaele
-                   $golem $golemappcache $gradle $mess $music $maven $npm $opera $pip $playground $pnpm $thumbnails $videos $yarn)
+declare -a target=($aptcacherng $archloop $dockerapt $chrome $electron 
+                   $downloads $fyn $forever $gaele $golem $golemappcache 
+                   $gradle $mess $music $maven $npm $opera $pip $playground 
+                   $pnpm $thumbnails $videos $yarn)
 
 # create report dir, if doesn't
 if [[ ! -f "${report_dir}" ]]; then
@@ -57,7 +60,7 @@ for c in "${target[@]}"; do
   # sanitize (remove things that don't need)
   filename=$(echo $c | grep $c | sed 's/home//g' | sed 's/loouis//g' |
              sed 's/var//g'| sed 's/spool//g' | sed 's/cache//g' |
-             sed 's/Documents//g' | sed 's/misc//g' |sed 's/play//g' |
+             sed 's/Documents//g' | sed 's/misc//g' | sed 's/play//g' |
              sed 's/config//g' | sed 's/media//g' | sed 's/Storage//g' |
              sed 's/System//g' | sed 's/-r-ng//g'|
              tr -d './' | tr '[:upper:]' '[:lower:]')
